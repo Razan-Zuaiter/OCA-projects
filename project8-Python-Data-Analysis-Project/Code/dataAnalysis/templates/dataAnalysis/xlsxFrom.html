@@ -1,0 +1,65 @@
+{% extends "dataAnalysis/base.html" %}
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="mt-4">Dashboard</h1>
+        <div class="row">
+            <div class="col mb-4">
+                <form method="post" enctype="multipart/form-data"
+>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label >xlsx file</label>
+                        <input type="file" name="file" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                DataTable Example
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                         <th>National ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Mobile</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>National ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Mobile</th>
+
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                            {% for person in allPeople %}
+                                <tr>
+                                <td>{{ person.NID }}</td>
+                                <td>{{ person.Fname }}</td>
+                                <td>{{ person.Lname }}</td>
+                                <td>{{ person.Gender }}</td>
+                                <td>{{ person.Age }}</td>
+                                <td>{{ person.Mobile }}</td>
+
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

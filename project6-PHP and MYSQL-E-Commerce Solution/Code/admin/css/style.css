@@ -1,0 +1,13 @@
+.table td {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+.table td p {
+  word-wrap: break-word !important;
+}
+
+.table td img {
+  max-width: 15rem;
+}
+/*# sourceMappingURL=style.css.map */

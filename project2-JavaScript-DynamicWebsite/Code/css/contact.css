@@ -1,0 +1,111 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: linear-gradient(120deg, #effad3, #2d6187, #28abb9);
+	font-family: sans-serif;
+	background-size: cover;
+	position: relative;
+	height: 100vh;
+}
+
+.W-container {
+	width: 90%;
+	margin: 90px auto;
+}
+
+.W-heading {
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 50px;
+}
+
+.W-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-flow: wrap;
+}
+
+.W-card {
+	background: rgba(255, 255, 255, 0.295);
+	width: 25%;
+	margin-bottom: 50px;
+	transition: 0, 3s;
+	position: relative;
+
+	border-radius: 20px 20px 20px 20px;
+}
+
+.W-card-header {
+	text-align: center;
+	padding: 10px 10px;
+}
+.profile-image {
+	border-radius: 50%;
+	height: 15rem;
+	width: 15rem;
+}
+.W-card-body {
+	font-family: 'Sansita Swashed', cursive;
+	padding: 10px 10px;
+	text-align: center;
+	font-size: 20px;
+	height: 145px;
+}
+
+.W-card-btn {
+	margin-bottom: 3rem;
+	text-align: center;
+}
+
+.W-card:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+}
+.fas {
+	font-size: 3rem;
+	color: rgb(13, 74, 102);
+	align-items: center;
+}
+
+.fab {
+	font-size: 3rem;
+	color: rgb(13, 74, 102);
+	align-items: center;
+}
+
+/*media queries*/
+
+@media screen and (max-width: 900px) {
+	.W-container {
+		width: 100%;
+	}
+
+	.W-heading {
+		padding: 20px;
+		font-size: 20px;
+	}
+
+	.W-card {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.W-container {
+		width: 100%;
+	}
+
+	.W-heading {
+		padding: 20px;
+		font-size: 20px;
+	}
+
+	.W-card {
+		width: 80%;
+	}
+}

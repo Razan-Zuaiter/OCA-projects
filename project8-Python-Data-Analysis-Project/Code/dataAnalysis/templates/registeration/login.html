@@ -1,0 +1,15 @@
+{% extends "registeration/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block formLogin %}
+ <form method="post">
+     {% csrf_token %}
+     {{ form |crispy}}
+     <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+{#         <a class="small" href="password.html">Forgot Password?</a>#}
+         <button class="btn btn-primary" type="submit">Login</button>
+     </div>
+ </form>
+{% endblock %}
+
+

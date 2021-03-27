@@ -1,0 +1,77 @@
+{% extends "dataAnalysis/base.html" %}
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="mt-4">User</h1>
+        <div class="row">
+            <div class="col mb-4">
+                <form method="post" action="{% url "DataUser_add" %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label >User name</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                     <div class="form-group">
+                        <label> User Email  </label>
+                       <input type="text" name="email" class="form-control">
+                          <p class="text-danger">{{ errorEmail }}</p>
+                    </div>
+                     <div class="form-group">
+                        <label >User password</label>
+                         <input type="password" name="password" class="form-control">
+                           <p class="text-danger">{{ errorPass }}</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">add</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                User Sources table
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                             <th>Email</th>
+                               <th>Password</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                               <th>Email</th>
+                               <th>Password</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                            {% for DataUser in dataUsers %}
+                                <tr>
+                                <td>{{ DataUser.id }}</td>
+                                <td>{{ DataUser.name }}</td>
+                                <td>{{ DataUser.email }}</td>
+                                <td>{{ DataUser.password }}</td>
+                                <td>
+                                <a  class="btn btn-warning" href="{% url 'DataUser_edit' id=DataUser.id %}">Edit</a>
+                                </td>
+                                <td>
+                                <a  class="btn btn-danger" href="{% url 'DataUser_delete' id=DataUser.id %}">Delete</a>
+                                </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

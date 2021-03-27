@@ -1,0 +1,20 @@
+.table{
+    th,td{
+        // max-width: 300px !important;
+        
+    }
+    td{
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        
+        p{
+            // white-space:pre !important;
+            word-wrap: break-word !important;
+        //     overflow-wrap: break-word;
+        // hyphens: auto;
+        }
+        img{
+            max-width: 15rem;
+        }
+    }
+}

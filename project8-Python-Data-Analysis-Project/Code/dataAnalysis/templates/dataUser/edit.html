@@ -1,0 +1,36 @@
+{% extends "dataAnalysis/base.html" %}
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="mt-4">Dashboard</h1>
+        <div class="row">
+            <div class="col mb-4">
+                <form method="post" action="{% url "DataUser_update" %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{ dataUsers.id }}">
+                    <div class="form-group">
+                        <label >name</label>
+                        <input type="text" name="name" class="form-control"
+                             value="{{ dataUsers.name }}">
+                         </div>
+
+                          <div class="form-group">
+                          <label >Password</label>
+                           <input type="password" name="password" class="form-control"
+                               value="{{ dataUsers.password }}">
+                               <p class="text-danger">{{ errorPass }}</p>
+                            </div>
+
+                    {% comment %} <div class="form-group">
+                        <label >email</label>
+                        <input type="email" name="email" class="form-control"  placeholder="email" value="{{ dataSource.email }}">
+                    </div>
+                    <div class="form-group">
+                        <label>phone</label>
+                        <input type="number" name="phone" class="form-control"  placeholder="phone" value="{{ dataSource.phone }}">
+                    </div> {% endcomment %}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

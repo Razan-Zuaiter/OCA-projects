@@ -1,0 +1,67 @@
+{% extends "dataAnalysis/base.html" %}
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="mt-4">Data Sources</h1>
+        <div class="row">
+            <div class="col mb-4">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label >Data Sources name</label>
+                        <input type="text" name="name" class="form-control"
+                               placeholder="Enter name" >
+                        {% if error %}
+                        <div class="alert alert-danger" role="alert">
+  {{ error }}
+</div>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="btn btn-primary">add</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Data Sources table
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                            {% for dataSource in dataSources %}
+                                <tr>
+                                <td>{{ dataSource.id }}</td>
+                                <td>{{ dataSource.name }}</td>
+               
+                                <td>
+                                <a  class="btn btn-warning" href="{% url 'DataSource_edit' id=dataSource.id %}">Edit</a>
+                                </td>
+                                <td>
+                                <a  class="btn btn-danger" href="{% url 'DataSource_delete' id=dataSource.id %}">Delete</a>
+                                </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

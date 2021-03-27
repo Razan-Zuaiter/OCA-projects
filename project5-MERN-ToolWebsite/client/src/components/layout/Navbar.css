@@ -1,0 +1,22 @@
+/* * {
+  font-family: "Redressed", cursive !important;
+} */
+.circle {
+  color: white;
+  font-size: 1.3rem;
+  font-family: "Redressed", cursive !important;
+}
+.circle:hover {
+  color: #f29699;
+  transform: translateY(2px);
+  transition: 0.5s;
+  font-weight: bold;
+  /* border: 2px solid #78c1ad; */
+  border-radius: 0.7rem;
+  background-color: #fff;
+  outline: none;
+
+  /* opacity: 2; */
+  /* text-transform: uppercase ; */
+  /* display: block; */
+}
